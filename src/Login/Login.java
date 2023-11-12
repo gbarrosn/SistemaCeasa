@@ -27,7 +27,8 @@ public class Login {
     }
     
     public boolean authenticateUser() {
-        String databasePath = "resources/Banco.db"; // Caminho para o banco de dados
+        
+        String databasePath = "/DB/Banco.db"; // Caminho para o banco de dados
         String url = "jdbc:sqlite:" + databasePath;
 
         try (Connection connection = DriverManager.getConnection(url);
