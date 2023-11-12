@@ -28,7 +28,8 @@ public class Login {
         this.password = password;
     }
     
-    public boolean authenticateUser() {
+    public boolean authenticateUser() throws ClassNotFoundException {
+        Class.forName("org.sqlite.JDBC");
         
         String databasePath = "DB/Banco.db"; // Caminho para o banco de dados
         String url = "jdbc:sqlite:" + databasePath;
