@@ -110,6 +110,9 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         Login login = new Login(textLogin.getText(), textSenha.getText());
         System.out.println(login.getUsername() + login.getPasswordHash());
+        if (login.authenticateUser()) {
+            System.out.println("logado");
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
