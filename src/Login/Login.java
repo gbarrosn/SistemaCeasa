@@ -15,6 +15,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Login {
     private String username;
@@ -28,7 +30,7 @@ public class Login {
     
     public boolean authenticateUser() {
         
-        String databasePath = "/DB/Banco.db"; // Caminho para o banco de dados
+        String databasePath = "DB/Banco.db"; // Caminho para o banco de dados
         String url = "jdbc:sqlite:" + databasePath;
 
         try (Connection connection = DriverManager.getConnection(url);
