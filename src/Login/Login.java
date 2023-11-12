@@ -10,6 +10,11 @@ package Login;
  */
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Login {
     private String username;
@@ -19,6 +24,30 @@ public class Login {
     public Login(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+    
+    public boolean authenticateUser() {
+        String databasePath = "resources/Banco.db"; // Caminho para o banco de dados
+        String url = "jdbc:sqlite:" + databasePath;
+
+        try (Connection connection = DriverManager.getConnection(url)) {
+            String query = "SELECT senha FROM Users WHERE login = ?";
+            try (PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setString(1, getUsername());
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        String storedHash = resultSet.getString("senha");
+                        String enteredHash = getPasswordHash();
+                        
+                        // Comparar os hashes
+                        return storedHash.equals(enteredHash);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     // Getter method for username
