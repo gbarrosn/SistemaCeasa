@@ -30,21 +30,22 @@ public class Login {
         String databasePath = "resources/Banco.db"; // Caminho para o banco de dados
         String url = "jdbc:sqlite:" + databasePath;
 
-        try (Connection connection = DriverManager.getConnection(url)) {
-            String query = "SELECT senha FROM Users WHERE login = ?";
-            try (PreparedStatement statement = connection.prepareStatement(query)) {
-                statement.setString(1, getUsername());
-                try (ResultSet resultSet = statement.executeQuery()) {
-                    if (resultSet.next()) {
-                        String storedHash = resultSet.getString("senha");
-                        String enteredHash = getPasswordHash();
-                        
-                        // Comparar os hashes
-                        return storedHash.equals(enteredHash);
-                    }
+        try (Connection connection = DriverManager.getConnection(url);
+             PreparedStatement statement = connection.prepareStatement("SELECT senha FROM Users WHERE login = ?")) {
+
+            statement.setString(1, getUsername());
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    String storedHash = resultSet.getString("senha");
+                    String enteredHash = getPasswordHash();
+                    
+                    // Comparar os hashes
+                    return storedHash.equals(enteredHash);
                 }
             }
         } catch (SQLException e) {
+            // Tratar a exceção de forma adequada, como log ou relançar uma exceção personalizada
             e.printStackTrace();
         }
         return false;
@@ -74,10 +75,9 @@ public class Login {
 
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
-            // Handle the exception appropriately (e.g., log it)
+            // Tratar a exceção de forma adequada, como log ou relançar uma exceção personalizada
             e.printStackTrace();
             return null;
         }
     }
-
 }
