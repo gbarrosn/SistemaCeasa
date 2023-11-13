@@ -4,6 +4,8 @@
  */
 package Login;
 import java.awt.Image;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 /**
@@ -110,8 +112,12 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         Login login = new Login(textLogin.getText(), textSenha.getText());
         System.out.println(login.getUsername() + login.getPasswordHash());
-        if (login.authenticateUser()) {
-            System.out.println("logado");
+        try {
+            if (login.authenticateUser()) {
+                System.out.println("logado");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
