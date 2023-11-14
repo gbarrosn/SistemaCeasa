@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import Interface.TelaPrincipal;
 /**
  *
  * @author gbarrosn
@@ -114,7 +115,9 @@ public class TelaLogin extends javax.swing.JFrame {
         System.out.println(login.getUsername() + login.getPasswordHash());
         try {
             if (login.authenticateUser()) {
-                System.out.println("logado");
+                TelaPrincipal tela = new TelaPrincipal();
+                tela.setVisible(true);
+                dispose();
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
