@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import Interface.TelaPrincipal;
+import javax.swing.JOptionPane;
 /**
  *
  * @author gbarrosn
@@ -36,11 +37,11 @@ public class TelaLogin extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         textLogin = new java.awt.TextField();
-        textSenha = new java.awt.TextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        textSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,10 +55,6 @@ public class TelaLogin extends javax.swing.JFrame {
         });
         jPanel1.add(textLogin);
         textLogin.setBounds(33, 135, 155, 31);
-
-        textSenha.setText("");
-        jPanel1.add(textSenha);
-        textSenha.setBounds(33, 195, 155, 31);
 
         jButton1.setText("Fazer Login");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -75,15 +72,23 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jLabel1.setText("Login:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(33, 110, 35, 19);
+        jLabel1.setBounds(33, 110, 60, 19);
 
         jLabel2.setText("Senha:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(33, 174, 41, 17);
+        jLabel2.setBounds(33, 174, 70, 17);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/vendedoraimg.png"))); // NOI18N
         jPanel1.add(jLabel3);
         jLabel3.setBounds(60, 0, 100, 100);
+
+        textSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSenhaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(textSenha);
+        textSenha.setBounds(33, 200, 155, 31);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -143,18 +148,27 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         Login login = new Login(textLogin.getText(), textSenha.getText());
+        Login login = new Login(textLogin.getText(), textSenha.getText());
         System.out.println(login.getUsername() + login.getPasswordHash());
         try {
             if (login.authenticateUser()) {
                 TelaPrincipal tela = new TelaPrincipal();
                 tela.setVisible(true);
                 dispose();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Erro ao Logar, verifique a senha.");
+                textSenha.setText("");
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "Erro ao Logar: " + ex.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void textSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSenhaActionPerformed
+        // TODO add your handling code here:
+        jButton1ActionPerformed(evt);
+    }//GEN-LAST:event_textSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,6 +213,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private java.awt.TextField textLogin;
-    private java.awt.TextField textSenha;
+    private javax.swing.JPasswordField textSenha;
     // End of variables declaration//GEN-END:variables
 }
