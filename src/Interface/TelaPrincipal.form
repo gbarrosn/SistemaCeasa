@@ -109,62 +109,8 @@
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="jButtonFazerVenda" min="-2" pref="187" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButtonConsultarEstoque" max="32767" attributes="0"/>
-                                  <Component id="jButtonDevedor" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Component id="jButtonConsultarVendas" min="-2" pref="188" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButtonCadastrarCarga" pref="188" max="32767" attributes="0"/>
-                          <Component id="jButtonCadastrarCaixa" pref="188" max="32767" attributes="0"/>
-                          <Component id="jButtonCadastrarDevedor" max="32767" attributes="0"/>
-                          <Component id="jButtonCadastrarProdutos" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonFazerVenda" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="jButtonCadastrarCarga" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonConsultarVendas" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="jButtonCadastrarCaixa" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButtonCadastrarDevedor" max="32767" attributes="0"/>
-                          <Component id="jButtonConsultarEstoque" pref="47" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButtonDevedor" pref="47" max="32767" attributes="0"/>
-                          <Component id="jButtonCadastrarProdutos" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="16" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JButton" name="jButtonDevedor">
@@ -178,6 +124,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDevedorActionPerformed"/>
               </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="16" y="211" width="200" height="47"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonCadastrarCarga">
               <Properties>
@@ -191,6 +142,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastrarCargaActionPerformed"/>
               </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="303" y="16" width="200" height="47"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonConsultarEstoque">
               <Properties>
@@ -199,6 +155,11 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Consultar Estoque"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="16" y="146" width="200" height="47"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonCadastrarCaixa">
               <Properties>
@@ -210,6 +171,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastrarCaixaActionPerformed"/>
               </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="303" y="81" width="200" height="47"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonFazerVenda">
               <Properties>
@@ -218,6 +184,11 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Realizar Venda"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="16" y="16" width="200" height="47"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonConsultarVendas">
               <Properties>
@@ -226,6 +197,11 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Consultar Vendas"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="16" y="81" width="200" height="47"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonCadastrarDevedor">
               <Properties>
@@ -234,6 +210,11 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Devedor"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="303" y="146" width="200" height="47"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonCadastrarProdutos">
               <Properties>
@@ -242,6 +223,11 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Produtos"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="303" y="211" width="200" height="47"/>
+                </Constraint>
+              </Constraints>
             </Component>
           </SubComponents>
         </Container>

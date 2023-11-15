@@ -40,10 +40,11 @@ public class TelaLogin extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         textLogin.setText("");
         textLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -51,10 +52,12 @@ public class TelaLogin extends javax.swing.JFrame {
                 textLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(textLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 97, 169, 31));
+        jPanel1.add(textLogin);
+        textLogin.setBounds(33, 135, 155, 31);
 
         textSenha.setText("");
-        jPanel1.add(textSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 157, 169, 31));
+        jPanel1.add(textSenha);
+        textSenha.setBounds(33, 195, 155, 31);
 
         jButton1.setText("Fazer Login");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -67,13 +70,20 @@ public class TelaLogin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 236, 160, 31));
+        jPanel1.add(jButton1);
+        jButton1.setBounds(33, 260, 155, 31);
 
         jLabel1.setText("Login:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 76, -1, 19));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(33, 110, 35, 19);
 
         jLabel2.setText("Senha:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 138, -1, -1));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(33, 174, 41, 17);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/vendedoraimg.png"))); // NOI18N
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(60, 0, 100, 100);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -81,8 +91,8 @@ public class TelaLogin extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,13 +106,15 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 251, Short.MAX_VALUE)
+            .addGap(0, 225, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 346, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -183,6 +195,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private java.awt.TextField textLogin;

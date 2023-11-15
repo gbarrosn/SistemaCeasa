@@ -53,6 +53,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel3.setText("O que você gostaria de fazer hoje?");
 
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jButtonDevedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/caixasasfd.png"))); // NOI18N
         jButtonDevedor.setText("Consultar Devedores");
         jButtonDevedor.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -61,6 +63,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButtonDevedorActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonDevedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 211, 200, 47));
 
         jButtonCadastrarCarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/extoque chegandoIcone.png"))); // NOI18N
         jButtonCadastrarCarga.setText("Cadastrar Carga");
@@ -71,9 +74,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButtonCadastrarCargaActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonCadastrarCarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 16, 200, 47));
 
         jButtonConsultarEstoque.setIcon(new javax.swing.ImageIcon("/home/gbarrosn/NetBeansProjects/SistemaCeasa/src/resources/estoqueIcone.png")); // NOI18N
         jButtonConsultarEstoque.setText("Consultar Estoque");
+        jPanel2.add(jButtonConsultarEstoque, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 146, 200, 47));
 
         jButtonCadastrarCaixa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/caixaIcone.png"))); // NOI18N
         jButtonCadastrarCaixa.setText("Cadastrar Galéia");
@@ -82,63 +87,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jButtonCadastrarCaixaActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonCadastrarCaixa, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 81, 200, 47));
 
         jButtonFazerVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/VendedorIcon.png"))); // NOI18N
         jButtonFazerVenda.setText("Realizar Venda");
+        jPanel2.add(jButtonFazerVenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 16, 200, 47));
 
         jButtonConsultarVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/vendaIcon.png"))); // NOI18N
         jButtonConsultarVendas.setText("Consultar Vendas");
+        jPanel2.add(jButtonConsultarVendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 81, 200, 47));
 
         jButtonCadastrarDevedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/caminhaoIcone.png"))); // NOI18N
         jButtonCadastrarDevedor.setText("Cadastrar Devedor");
+        jPanel2.add(jButtonCadastrarDevedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 146, 200, 47));
 
         jButtonCadastrarProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/estoqueazulIcon.png"))); // NOI18N
         jButtonCadastrarProdutos.setText("Cadastrar Produtos");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButtonFazerVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonConsultarEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonDevedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jButtonConsultarVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonCadastrarCarga, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addComponent(jButtonCadastrarCaixa, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addComponent(jButtonCadastrarDevedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonCadastrarProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(74, 74, 74))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonFazerVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCadastrarCarga, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonConsultarVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCadastrarCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonCadastrarDevedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonConsultarEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonDevedor, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                    .addComponent(jButtonCadastrarProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
+        jPanel2.add(jButtonCadastrarProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 211, 200, 47));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
