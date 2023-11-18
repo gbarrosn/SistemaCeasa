@@ -4,6 +4,14 @@
  */
 package Interface;
 
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author gbarrosn
@@ -34,8 +42,8 @@ public class CadastrarCaixa extends javax.swing.JFrame {
         jTextFieldCargaCaixa = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldPreçoCaixa = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonCadastrar = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,14 +64,25 @@ public class CadastrarCaixa extends javax.swing.JFrame {
 
         jLabel4.setText("Preço (em R$):");
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPreçoCaixa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jTextFieldPreçoCaixaActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancelar");
+        jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarActionPerformed(evt);
+            }
+        });
+
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -73,9 +92,9 @@ public class CadastrarCaixa extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(jButtonCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(jButtonCadastrar))
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,8 +123,8 @@ public class CadastrarCaixa extends javax.swing.JFrame {
                 .addComponent(jTextFieldPreçoCaixa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(jButtonCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -130,9 +149,58 @@ public class CadastrarCaixa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCargaCaixaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        String nome = jTextFieldNomeCaixa.getText();
+        int preco = Integer.parseInt(jTextFieldPreçoCaixa.getText());
+        int carga = Integer.parseInt(jTextFieldCargaCaixa.getText());
+
+        // Create a Caixa object
+        Caixa caixa = new Caixa(preco, carga, nome);
+        
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CadastrarCaixa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String databasePath = "DB/Banco.db"; // Caminho para o banco de dados
+        String url = "jdbc:sqlite:" + databasePath;
+
+        
+        try (Connection connection = DriverManager.getConnection(databasePath);
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "INSERT INTO modelo_caixa (nome_caixa, carga_caixa, preco_caixa) VALUES (?, ?, ?)")) {
+
+            preparedStatement.setString(1, caixa.getName());
+            preparedStatement.setInt(2, caixa.getLoad());
+            preparedStatement.setInt(3, caixa.getPrice());
+
+            preparedStatement.executeUpdate();
+
+            // Display a message indicating successful insertion (you can customize this part)
+            JOptionPane.showMessageDialog(this, "Caixa created and data inserted into the database!");
+
+        } catch (SQLException e) {
+            // Handle any SQL errors
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+        int input = JOptionPane.showConfirmDialog(null, "Deseja cancelar o cadastro?");
+        if (input == 0) {
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.setVisible(true);
+            dispose();
+        }
+        
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jTextFieldPreçoCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPreçoCaixaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPreçoCaixaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,8 +238,8 @@ public class CadastrarCaixa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonCadastrar;
+    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
