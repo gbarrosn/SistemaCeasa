@@ -10,12 +10,12 @@ import javax.swing.ImageIcon;
  *
  * @author gbarrosn
  */
-public class RegistrarCaixa extends javax.swing.JFrame {
+public class RegistrosCaixas extends javax.swing.JFrame {
 
     /**
      * Creates new form RegistrarCaixa
      */
-    public RegistrarCaixa() {
+    public RegistrosCaixas() {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/resources/estoqueAmarelo.png")).getImage());
 
@@ -34,12 +34,11 @@ public class RegistrarCaixa extends javax.swing.JFrame {
         jButtonTelaPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(768, 437));
         setMinimumSize(new java.awt.Dimension(768, 437));
-        setPreferredSize(new java.awt.Dimension(768, 437));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(768, 437));
 
+        jButtonTelaPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/estoqueAmareloIcon.png"))); // NOI18N
         jButtonTelaPrincipal.setText("Tela Principal");
         jButtonTelaPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,10 +50,10 @@ public class RegistrarCaixa extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(585, Short.MAX_VALUE)
                 .addComponent(jButtonTelaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(585, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,6 +80,7 @@ public class RegistrarCaixa extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonTelaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTelaPrincipalActionPerformed
@@ -107,20 +107,21 @@ public class RegistrarCaixa extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrosCaixas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrosCaixas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrosCaixas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCaixa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegistrosCaixas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistrarCaixa().setVisible(true);
+                new RegistrosCaixas().setVisible(true);
             }
         });
     }

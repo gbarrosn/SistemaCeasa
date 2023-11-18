@@ -155,6 +155,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonDevedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDevedorActionPerformed
@@ -167,7 +168,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButtonCadastrarCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarCaixaActionPerformed
         // TODO add your handling code here:
-        RegistrarCaixa telaCaixa = new RegistrarCaixa();
+        RegistrosCaixas telaCaixa = new RegistrosCaixas();
         telaCaixa.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonCadastrarCaixaActionPerformed
