@@ -167,6 +167,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButtonCadastrarCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarCaixaActionPerformed
         // TODO add your handling code here:
+        RegistrarCaixa telaCaixa = new RegistrarCaixa();
+        telaCaixa.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButtonCadastrarCaixaActionPerformed
 
     /**
