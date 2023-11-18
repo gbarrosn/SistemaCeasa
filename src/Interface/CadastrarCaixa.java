@@ -159,31 +159,9 @@ public class CadastrarCaixa extends javax.swing.JFrame {
         Caixa caixa = new Caixa(preco, carga, nome);
         
         try {
-            Class.forName("org.sqlite.JDBC");
+            CadastrarCaixa(caixa);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CadastrarCaixa.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        String databasePath = "DB/Banco.db"; // Caminho para o banco de dados
-        String url = "jdbc:sqlite:" + databasePath;
-
-        
-        try (Connection connection = DriverManager.getConnection(databasePath);
-             PreparedStatement preparedStatement = connection.prepareStatement(
-                     "INSERT INTO modelo_caixa (nome_caixa, carga_caixa, preco_caixa) VALUES (?, ?, ?)")) {
-
-            preparedStatement.setString(1, caixa.getName());
-            preparedStatement.setInt(2, caixa.getLoad());
-            preparedStatement.setInt(3, caixa.getPrice());
-
-            preparedStatement.executeUpdate();
-
-            // Display a message indicating successful insertion (you can customize this part)
-            JOptionPane.showMessageDialog(this, "Caixa created and data inserted into the database!");
-
-        } catch (SQLException e) {
-            // Handle any SQL errors
-            e.printStackTrace();
         }
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
@@ -198,6 +176,43 @@ public class CadastrarCaixa extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
+    public Boolean CadastrarCaixa(Caixa caixa) throws ClassNotFoundException {
+        Class.forName("org.sqlite.JDBC");
+        
+        String databasePath = "DB/Banco.db"; // Caminho para o banco de dados
+        String url = "jdbc:sqlite:" + databasePath;
+
+        try (Connection connection = DriverManager.getConnection(url);
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "INSERT INTO modelo_caixa (nome_caixa, carga_caixa, preco_caixa) VALUES (?, ?, ?)")) {
+
+            preparedStatement.setString(1, caixa.getName());
+            preparedStatement.setInt(2, caixa.getLoad());
+            preparedStatement.setInt(3, caixa.getPrice());
+
+            preparedStatement.executeUpdate();
+
+            // Display a message indicating successful insertion (you can customize this part)
+            JOptionPane.showMessageDialog(this, "Caixa created and data inserted into the database!");
+            
+            int opt = JOptionPane.showConfirmDialog(null, "Deseja cadastrar mais uma caixa?");
+            if (opt == 0) {
+                CadastrarCaixa novaTela = new CadastrarCaixa();
+                novaTela.setVisible(true);
+                dispose();
+            } else {
+                RegistrosCaixas telaCaixas = new RegistrosCaixas();
+                telaCaixas.setVisible(true);
+                dispose();
+                
+            }
+
+        } catch (SQLException e) {
+            // Handle any SQL errors
+            e.printStackTrace();
+        }
+        return null;
+    }
     private void jTextFieldPreçoCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPreçoCaixaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPreçoCaixaActionPerformed
